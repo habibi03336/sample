@@ -1,7 +1,6 @@
 package com.hollysgang.sample.framework.security.authorization.evaluator;
 
 import lombok.Data;
-import org.springframework.http.HttpMethod;
 
 import java.util.HashSet;
 import java.util.Set;
