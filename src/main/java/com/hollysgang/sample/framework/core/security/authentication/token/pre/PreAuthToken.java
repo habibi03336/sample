@@ -1,4 +1,4 @@
-package com.hollysgang.sample.framework.security.authentication.token.pre;
+package com.hollysgang.sample.framework.core.security.authentication.token.pre;
 
 import org.springframework.security.core.Authentication;
 

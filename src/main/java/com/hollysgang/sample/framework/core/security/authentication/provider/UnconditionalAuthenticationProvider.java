@@ -1,7 +1,7 @@
-package com.hollysgang.sample.framework.security.authentication.provider;
+package com.hollysgang.sample.framework.core.security.authentication.provider;
 
-import com.hollysgang.sample.framework.security.authentication.token.pre.NullToken;
-import com.hollysgang.sample.framework.security.authentication.token.authenticated.UserToken;
+import com.hollysgang.sample.framework.core.security.authentication.token.authenticated.UserToken;
+import com.hollysgang.sample.framework.core.security.authentication.token.pre.NullToken;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;

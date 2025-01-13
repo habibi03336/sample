@@ -1,6 +1,6 @@
-package com.hollysgang.sample.framework.security;
+package com.hollysgang.sample.framework.core.security;
 
-import com.hollysgang.sample.framework.security.authentication.filter.PassThroughAuthenticationFilter;
+import com.hollysgang.sample.framework.core.security.authentication.filter.PassThroughAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

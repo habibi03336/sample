@@ -1,4 +1,4 @@
-package com.hollysgang.sample.framework.security.authorization.evaluator;
+package com.hollysgang.sample.framework.core.security.authorization.evaluator;
 
 import jakarta.servlet.http.HttpServletRequest;
 

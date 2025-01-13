@@ -1,4 +1,4 @@
-package com.hollysgang.sample.framework.security.authentication.token.authenticated;
+package com.hollysgang.sample.framework.core.security.authentication.token.authenticated;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
