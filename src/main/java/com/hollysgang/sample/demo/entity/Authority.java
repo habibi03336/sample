@@ -17,7 +17,7 @@ public class Authority {
     private String description;
 
     @OneToMany(mappedBy = "authority", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserAuthority> userAuthorities;
+    private List<AccountAuthority> accountAuthorities;
 
     @OneToMany(mappedBy = "authority", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AuthorityMenu> authorityMenus;
