@@ -1,5 +1,6 @@
 package com.hollysgang.sample.demo.entity;
 
+import com.hollysgang.sample.framework.module.entity.MenuAPI;
 import jakarta.persistence.*;
 
 import java.util.List;

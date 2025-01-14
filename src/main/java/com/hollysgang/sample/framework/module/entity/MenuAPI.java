@@ -1,9 +1,9 @@
-package com.hollysgang.sample.demo.entity;
+package com.hollysgang.sample.framework.module.entity;
 
+import com.hollysgang.sample.demo.entity.Menu;
 import com.hollysgang.sample.demo.entity.id.MenuAPIId;
-import jakarta.persistence.*;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "MenuAPI")
