@@ -1,4 +1,4 @@
-package com.hollysgang.sample.framework.module.entity;
+package com.hollysgang.sample.framework.module.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

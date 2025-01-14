@@ -2,8 +2,8 @@ package com.hollysgang.sample.framework.module.api;
 
 import com.hollysgang.sample.framework.core.manage.api.APIInfo;
 import com.hollysgang.sample.framework.core.manage.api.APIInfoRepository;
-import com.hollysgang.sample.framework.module.entity.API;
-import com.hollysgang.sample.framework.module.repository.APIRepository;
+import com.hollysgang.sample.framework.module.api.entity.API;
+import com.hollysgang.sample.framework.module.api.repository.APIRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
