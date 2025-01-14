@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class APIRetrieveAndSave implements CommandLineRunner {
@@ -35,6 +36,10 @@ public class APIRetrieveAndSave implements CommandLineRunner {
                             .build()
             );
         }
-        apiRepository.saveAll(apiEntities);
+        List<API> newApiEntities = apiEntities
+                .stream()
+                .filter(apiEntity -> !apiRepository.existsByPathAndMethod(apiEntity.getPath(), apiEntity.getMethod()))
+                .collect(Collectors.toList());
+        apiRepository.saveAll(newApiEntities);
     }
 }

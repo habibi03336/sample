@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface APIRepository extends JpaRepository<API, Long> {
+    boolean existsByPathAndMethod(String path, String method);
 }
