@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -30,6 +31,19 @@ public class APIInfoRepositoryImpl implements APIInfoRepository {
                         .description(e.getDescription())
                         .build())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public APIInfo findByKey(String key) {
+        Optional<API> apiOptional = apiRepository.findById(Long.parseLong(key));
+        if(apiOptional.isEmpty()) return null;
+        API api = apiOptional.get();
+        return APIInfo.builder()
+                .key(api.getId().toString())
+                .uri(api.getPath())
+                .method(api.getMethod())
+                .description(api.getDescription())
+                .build();
     }
 
     @Override
