@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Entity
 @Data
-@Builder
 @Table(name = "Menu")
 public class Menu {
     @Id
@@ -27,6 +26,14 @@ public class Menu {
 
     @OneToMany(mappedBy = "menu")
     private Set<AuthorityMenu> authorityMenus;
+
+    @Builder
+    public Menu(Long id, String name, Menu upMenu, Boolean itemYn, Set<AuthorityMenu> authorityMenus) {
+        this.id = id;
+        this.name = name;
+        this.upMenu = upMenu;
+        this.itemYn = itemYn;
+    }
 
     public Menu() {
 

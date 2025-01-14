@@ -8,7 +8,6 @@ import java.util.Set;
 
 
 @Entity
-@Builder
 @Data
 @Table(name = "API")
 public class API {
@@ -27,6 +26,14 @@ public class API {
 
     @OneToMany(mappedBy = "api")
     private Set<MenuAPI> menuApis;
+
+    @Builder
+    public API(Long id, String path, String method, String description){
+        this.id = id;
+        this.path = path;
+        this.method = method;
+        this.description = description;
+    }
 
     public API() {}
 }

@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Entity
 @Data
-@Builder
 @Table(name = "MenuAPI")
 @IdClass(MenuAPIId.class)
 public class MenuAPI {
@@ -20,6 +19,12 @@ public class MenuAPI {
     @ManyToOne
     @JoinColumn(name = "api_id")
     private API api;
+
+    @Builder
+    public MenuAPI(Menu menu, API api) {
+        this.menu = menu;
+        this.api = api;
+    }
 
     public MenuAPI() {
 
