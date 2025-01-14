@@ -1,10 +1,14 @@
 package com.hollysgang.sample.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.Set;
 
 @Entity
+@Data
+@Builder
 @Table(name = "Menu")
 public class Menu {
     @Id
@@ -23,4 +27,8 @@ public class Menu {
 
     @OneToMany(mappedBy = "menu")
     private Set<AuthorityMenu> authorityMenus;
+
+    public Menu() {
+
+    }
 }
