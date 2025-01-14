@@ -1,5 +1,6 @@
 package com.hollysgang.sample.framework.core.manage.api;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class APIRetriever {
 
     private final RequestMappingHandlerMapping handlerMapping;
