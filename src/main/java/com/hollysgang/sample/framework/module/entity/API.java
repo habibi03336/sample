@@ -2,11 +2,13 @@ package com.hollysgang.sample.framework.module.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Data;
 
 
 import java.util.List;
 
 @Entity
+@Data
 @Table(name = "API")
 public class API {
 
@@ -30,7 +32,5 @@ public class API {
         this.description = description;
     }
 
-    public API() {
-
-    }
+    public API() {}
 }
