@@ -2,7 +2,7 @@ package com.hollysgang.sample.framework.module.api;
 
 import com.hollysgang.sample.framework.core.manage.api.AuthorizeEntity;
 import com.hollysgang.sample.framework.core.manage.api.AuthorizeEntityRepository;
-import com.hollysgang.sample.framework.module.api.entity.Menu;
+import com.hollysgang.sample.framework.module.api.entity.MenuAuthEntity;
 import com.hollysgang.sample.framework.module.api.repository.MenuRepository;
 import org.springframework.stereotype.Component;
 
@@ -25,14 +25,14 @@ public class AuthorizeEntityRepositoryImpl implements AuthorizeEntityRepository 
 
     @Override
     public AuthorizeEntity findAllByKey(String key) {
-        Optional<Menu> menu = menuRepository.findById(Long.parseLong(key));
+        Optional<MenuAuthEntity> menu = menuRepository.findById(Long.parseLong(key));
         return menu.map(this::mapToAuthorizeEntity).orElse(null);
     }
 
-    private AuthorizeEntity mapToAuthorizeEntity(Menu menu){
+    private AuthorizeEntity mapToAuthorizeEntity(MenuAuthEntity menuAuthEntity){
         return AuthorizeEntity.builder()
-                .key(menu.getId().toString())
-                .name(menu.getName())
+                .key(menuAuthEntity.getId().toString())
+                .name(menuAuthEntity.getName())
                 .build();
     }
 }
