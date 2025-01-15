@@ -6,11 +6,13 @@ import com.hollysgang.sample.framework.core.manage.api.APIPermissionRepository;
 import com.hollysgang.sample.framework.module.api.entity.API;
 import com.hollysgang.sample.framework.module.api.entity.MenuAPI;
 import com.hollysgang.sample.framework.module.api.repository.MenuAPIRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Component
 public class APIPermissionRepositoryImpl implements APIPermissionRepository {
 
     private final MenuAPIRepository menuAPIRepository;
