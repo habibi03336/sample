@@ -15,7 +15,7 @@ public class APIRetrieveAndSave implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String targetPackage = "com.hollysgang.sample";
+        String targetPackage = "com.hollysgang.sample.demo";
         apiRepositorySynchronizer.synchronize(targetPackage);
     }
 }
