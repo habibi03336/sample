@@ -1,18 +1,42 @@
 package com.hollysgang.sample.framework.core.manage.api;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class APIPermissionService {
 
     private final APIPermissionRepository apiPermissionRepository;
+    private final AuthorizeEntityRepository authorizeEntityRepository;
     private final APIInfoRepository apiInfoRepository;
 
-    public APIPermissionService(APIPermissionRepository apiPermissionRepository, APIInfoRepository apiInfoRepository) {
+    public APIPermissionService(APIPermissionRepository apiPermissionRepository, AuthorizeEntityRepository authorizeEntityRepository, APIInfoRepository apiInfoRepository) {
         this.apiPermissionRepository = apiPermissionRepository;
+        this.authorizeEntityRepository = authorizeEntityRepository;
         this.apiInfoRepository = apiInfoRepository;
+
+    }
+
+    public List<AuthorizeEntity> getAuthorizeEntities(){
+        return authorizeEntityRepository.findAll();
+    }
+
+    public AuthorizeEntity getAuthorizeEntity(String key){
+        return authorizeEntityRepository.findAllByKey(key);
+    }
+
+    public List<APIInfo> getAPIInfos(String targetProject){
+        return apiInfoRepository.findAll(targetProject);
+    }
+
+    public List<APIPermission> getAuthorizedAPIInfos(String authorizedEntity){
+        return apiPermissionRepository.findAllByAuthorizedEntity(authorizedEntity);
     }
 
     public void addPermission(String authorizedEntity, String apikey){
+        AuthorizeEntity authEntity = authorizeEntityRepository.findAllByKey(authorizedEntity);
+        if(authEntity == null) {
+            throw new NoSuchElementException(String.format("식별자 %s를 가진 허가 대상이 존재하지 않습니다.", authorizedEntity));
+        }
         APIInfo apiInfo = apiInfoRepository.findByKey(apikey);
         if(apiInfo == null) {
             throw new NoSuchElementException(String.format("식별자 %s를 가진 API가 존재하지 않습니다.", apikey));
@@ -26,6 +50,10 @@ public class APIPermissionService {
     }
 
     public void deletePermission(String authorizedEntity, String apikey){
+        AuthorizeEntity authEntity = authorizeEntityRepository.findAllByKey(authorizedEntity);
+        if(authEntity == null) {
+            throw new NoSuchElementException(String.format("식별자 %s를 가진 허가 대상이 존재하지 않습니다.", authorizedEntity));
+        }
         APIInfo apiInfo = apiInfoRepository.findByKey(apikey);
         if(apiInfo == null) {
             throw new NoSuchElementException(String.format("식별자 %s를 가진 API가 존재하지 않습니다.", apikey));
