@@ -1,21 +1,5 @@
 import { client } from "./client";
-
-interface AuthorizeEntity {
-	key: string; // 인증 엔티티 키
-	name: string; // 인증 엔티티 이름
-}
-
-interface APIInfo {
-	key: string; // API 키
-	uri: string; // API 경로
-	method: string; // HTTP 메서드
-	description: string; // 설명
-}
-
-interface APIPermission {
-	authorizedEntity: string; // 인증 엔티티 키
-	apiKey: string; // API 키
-}
+import { AuthorizeEntity, APIInfo, APIPermission } from "../types";
 
 // GET /api-manage/authorize-entity
 export const GET_AUTHORIZE_ENTITIES = () => {

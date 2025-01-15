@@ -1,9 +1,10 @@
 import "./App.css";
+import Main from "./page/Main";
 
 function App() {
 	return (
 		<>
-			<h1>API Permission UI</h1>
+			<Main />
 		</>
 	);
 }
