@@ -1,8 +1,11 @@
 package com.hollysgang.sample.framework.core.manage.api;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Component
 public class APIPermissionService {
 
     private final APIPermissionRepository apiPermissionRepository;
