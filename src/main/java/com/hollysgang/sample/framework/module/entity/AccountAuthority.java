@@ -1,12 +1,13 @@
-package com.hollysgang.sample.demo.entity;
+package com.hollysgang.sample.framework.module.entity;
 
-import com.hollysgang.sample.demo.entity.id.AccountAuthorityId;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 
 @Entity
+@Data
 @Table(name = "AccountAuthority")
 @IdClass(AccountAuthorityId.class)
 public class AccountAuthority {

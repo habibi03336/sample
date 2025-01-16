@@ -1,4 +1,4 @@
-package com.hollysgang.sample.framework.module.api.entity;
+package com.hollysgang.sample.framework.module.entity;
 
 import java.io.Serializable;
 

@@ -1,7 +1,6 @@
-package com.hollysgang.sample.demo.entity;
+package com.hollysgang.sample.framework.module.entity;
 
 
-import com.hollysgang.sample.demo.entity.id.AuthorityMenuId;
 import jakarta.persistence.*;
 
 @Entity

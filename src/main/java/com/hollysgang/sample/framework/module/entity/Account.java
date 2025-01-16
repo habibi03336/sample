@@ -1,10 +1,12 @@
-package com.hollysgang.sample.demo.entity;
+package com.hollysgang.sample.framework.module.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@Data
 @Table(name = "Account")
 public class Account {
 
@@ -17,5 +19,4 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AccountAuthority> userAuthorities;
 
-    // Getters and Setters
 }

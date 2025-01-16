@@ -1,6 +1,6 @@
-package com.hollysgang.sample.framework.module.api.repository;
+package com.hollysgang.sample.framework.module.repository;
 
-import com.hollysgang.sample.framework.module.api.entity.API;
+import com.hollysgang.sample.framework.module.entity.API;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

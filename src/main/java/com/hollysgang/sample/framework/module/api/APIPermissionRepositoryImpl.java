@@ -1,11 +1,11 @@
 package com.hollysgang.sample.framework.module.api;
 
-import com.hollysgang.sample.demo.entity.Menu;
 import com.hollysgang.sample.framework.core.manage.api.APIPermission;
 import com.hollysgang.sample.framework.core.manage.api.APIPermissionRepository;
-import com.hollysgang.sample.framework.module.api.entity.API;
-import com.hollysgang.sample.framework.module.api.entity.MenuAPI;
-import com.hollysgang.sample.framework.module.api.repository.MenuAPIRepository;
+import com.hollysgang.sample.framework.module.entity.API;
+import com.hollysgang.sample.framework.module.entity.Menu;
+import com.hollysgang.sample.framework.module.entity.MenuAPI;
+import com.hollysgang.sample.framework.module.repository.MenuAPIRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

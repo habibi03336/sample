@@ -1,6 +1,6 @@
 package com.hollysgang.sample.framework.core.security;
 
-import com.hollysgang.sample.framework.core.security.authentication.filter.PassThroughAuthenticationFilter;
+import com.hollysgang.sample.framework.core.security.authentication.filter.UserPassThroughAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,14 +19,14 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
-        PassThroughAuthenticationFilter passThroughAuthenticationFilter =
-                new PassThroughAuthenticationFilter(
-                        new AntPathRequestMatcher("/pass-through", "GET"),
+        UserPassThroughAuthenticationFilter userPassThroughFilter =
+                new UserPassThroughAuthenticationFilter(
+                        new AntPathRequestMatcher("/user-pass-through", "GET"),
                         authenticationManager
                 );
         HttpSessionSecurityContextRepository httpSessionSecurityContextRepository =
                 new HttpSessionSecurityContextRepository();
-        passThroughAuthenticationFilter.setSecurityContextRepository(httpSessionSecurityContextRepository);
+        userPassThroughFilter.setSecurityContextRepository(httpSessionSecurityContextRepository);
 
         http
             .authorizeHttpRequests(
@@ -35,7 +35,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
             )
             .csrf(csrf->csrf.disable())
-            .addFilterBefore(passThroughAuthenticationFilter, AnonymousAuthenticationFilter.class)
+            .addFilterBefore(userPassThroughFilter, AnonymousAuthenticationFilter.class)
         ;
 
         return http.build();

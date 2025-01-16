@@ -1,6 +1,5 @@
-package com.hollysgang.sample.framework.module.api.entity;
+package com.hollysgang.sample.framework.module.entity;
 
-import com.hollysgang.sample.demo.entity.Menu;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;

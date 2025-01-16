@@ -1,6 +1,6 @@
-package com.hollysgang.sample.framework.module.api.repository;
+package com.hollysgang.sample.framework.module.repository;
 
-import com.hollysgang.sample.framework.module.api.entity.MenuAPI;
+import com.hollysgang.sample.framework.module.entity.MenuAPI;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
