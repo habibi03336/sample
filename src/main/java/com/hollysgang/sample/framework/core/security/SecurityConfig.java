@@ -3,6 +3,7 @@ package com.hollysgang.sample.framework.core.security;
 import com.hollysgang.sample.framework.core.security.authentication.filter.PassThroughAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,8 +30,11 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(
-                auth -> auth.anyRequest().authenticated()
+                auth -> auth
+                        .requestMatchers(org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher(HttpMethod.OPTIONS, "/**")).permitAll()
+                        .anyRequest().authenticated()
             )
+            .csrf(csrf->csrf.disable())
             .addFilterBefore(passThroughAuthenticationFilter, AnonymousAuthenticationFilter.class)
         ;
 
