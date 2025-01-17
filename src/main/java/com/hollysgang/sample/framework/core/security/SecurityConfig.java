@@ -3,7 +3,6 @@ package com.hollysgang.sample.framework.core.security;
 import com.hollysgang.sample.framework.core.security.authentication.filter.UserPassThroughAuthenticationFilter;
 import com.hollysgang.sample.framework.core.security.authorization.evaluator.APIPermissionLoader;
 import com.hollysgang.sample.framework.core.security.authorization.evaluator.PermissionEvaluator;
-import com.hollysgang.sample.framework.core.security.authorization.filter.APIPermissionFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,7 +11,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.intercept.AuthorizationFilter;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -36,17 +34,15 @@ public class SecurityConfig {
                 new HttpSessionSecurityContextRepository();
         userPassThroughFilter.setSecurityContextRepository(httpSessionSecurityContextRepository);
 
-        APIPermissionFilter apiPermissionFilter = new APIPermissionFilter(permissionEvaluator(apiPermissionLoader));
-
         http
             .authorizeHttpRequests(
                 auth -> auth
                         .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.OPTIONS, "/**")).permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/api-manage/**")).permitAll()
+                        .anyRequest().access(permissionEvaluator(apiPermissionLoader))
             )
             .csrf(csrf->csrf.disable())
             .addFilterBefore(userPassThroughFilter, AnonymousAuthenticationFilter.class)
-            .addFilterAt(apiPermissionFilter, AuthorizationFilter.class)
         ;
 
         return http.build();
