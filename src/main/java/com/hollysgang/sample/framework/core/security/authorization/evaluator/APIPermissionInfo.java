@@ -1,5 +1,6 @@
 package com.hollysgang.sample.framework.core.security.authorization.evaluator;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ public class APIPermissionInfo {
     private HttpMethod method;
     private Set<String> allowedRoles;
 
+    @Builder
     public APIPermissionInfo(String url, HttpMethod method){
         this.url = url;
         this.method = method;

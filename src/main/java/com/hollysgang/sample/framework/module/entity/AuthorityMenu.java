@@ -2,9 +2,11 @@ package com.hollysgang.sample.framework.module.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
-@Table(name = "AuthorityMenu")
+@Table(name = "authoritymenu")
+@Data
 @IdClass(AuthorityMenuId.class)
 public class AuthorityMenu {
 
