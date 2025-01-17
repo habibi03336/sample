@@ -4,7 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-public class PreUserToken extends PreAuthToken{
+public class PreUserToken extends PreAuthToken {
     private final String name;
 
     public PreUserToken(String name) {

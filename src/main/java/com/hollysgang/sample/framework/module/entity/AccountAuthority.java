@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "AccountAuthority")
+@Table(name = "accountauthority")
 @IdClass(AccountAuthorityId.class)
 public class AccountAuthority {
 
@@ -23,4 +23,5 @@ public class AccountAuthority {
     private Authority authority;
 
     private LocalDateTime expireDt;
+
 }

@@ -31,7 +31,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(
                 auth -> auth
-                        .requestMatchers(org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher(HttpMethod.OPTIONS, "/**")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.OPTIONS, "/**")).permitAll()
                         .anyRequest().authenticated()
             )
             .csrf(csrf->csrf.disable())

@@ -18,6 +18,6 @@ public class UserPassThroughAuthenticationFilter extends AbstractAuthenticationP
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        return this.getAuthenticationManager().authenticate(new PreUserToken(request.getParameter("name")));
+        return this.getAuthenticationManager().authenticate(new PreUserToken(request.getParameter("user")));
     }
 }
