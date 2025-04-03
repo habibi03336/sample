@@ -1,6 +1,6 @@
 package com.hollysgang.sample.encryption.framework.module;
 
-import com.hollysgang.sample.encryption.framework.core.PersonalInformationProcessorCaching;
+import com.hollysgang.sample.encryption.framework.core.PersonalInformationProcessor;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class PersonalInformationProcessorSetup implements ApplicationListener<ApplicationReadyEvent> {
 
-    private final PersonalInformationProcessorCaching pip;
+    private final PersonalInformationProcessor pip;
     private final CipherManager cipherManager;
     private final ConfigurableApplicationContext context;
 
 
     public PersonalInformationProcessorSetup(
-            PersonalInformationProcessorCaching pip,
+            PersonalInformationProcessor pip,
             CipherManager cipherManager,
             ConfigurableApplicationContext context
     ){
