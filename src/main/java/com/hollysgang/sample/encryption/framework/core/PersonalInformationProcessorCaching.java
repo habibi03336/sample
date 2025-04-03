@@ -77,10 +77,12 @@ public class PersonalInformationProcessorCaching implements PersonalInformationP
         }
     }
 
+    @Override
     public final void setEncFunc(String type, Function<String, String> func){
         this.typeEncFuncs.put(type, func);
     }
 
+    @Override
     public final void setDecFunc(String type, Function<String, String> func){
         this.typeDecFuncs.put(type, func);
     }
